@@ -27,7 +27,11 @@ public class Person {
     }
 
     public Long getId() {
-        return id;
+        try{
+            return id;
+        }catch (NullPointerException e){
+            return Long.MIN_VALUE;
+        }
     }
 
     public void setId(Long id) {
@@ -35,7 +39,11 @@ public class Person {
     }
 
     public String getName() {
-        return name;
+        try {
+            return name;
+        }catch (NullPointerException e){
+            return "";
+        }
     }
 
     public void setName(String name) {
@@ -43,7 +51,12 @@ public class Person {
     }
 
     public Address getAddress() {
-        return address;
+        try {
+            return address;
+        }catch (NullPointerException e){
+            address = new Address();
+            return address;
+        }
     }
 
     public void setAddress(Address address) {
@@ -58,11 +71,11 @@ public class Person {
     }
 
     public boolean equals(Person o) {
-        if(!this.name.equals(o.getName()))
+        if(!this.getName().equals(o.getName()))
             return false;
-        if(!this.id.equals(o.getId()))
+        if(!this.getId().equals(o.getId()))
             return false;
-        if(!this.address.equals(o.getAddress()))
+        if(!this.getAddress().equals(o.getAddress()))
             return false;
         if(!this.toString().equals(o.toString()))
             return false;
