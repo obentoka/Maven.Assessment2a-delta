@@ -11,9 +11,9 @@ public class Animal {
 
     Long id;
     Person owner;
+
     public Animal() {
-        owner = new Person();
-        id = null;
+        this(null, new Person());
     }
 
     /**

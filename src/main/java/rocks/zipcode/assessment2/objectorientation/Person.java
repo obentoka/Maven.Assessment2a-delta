@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import java.util.Objects;
+
 /**
  * @author leon on 28/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Address` class before attempting this class
@@ -21,17 +23,11 @@ public class Person {
     }
 
     public Person() {
-        id = Long.MIN_VALUE;
-        name = "";
-        address = new Address();
+        this(Long.MIN_VALUE, "", new Address());
     }
 
     public Long getId() {
-        try{
-            return id;
-        }catch (NullPointerException e){
-            return Long.MIN_VALUE;
-        }
+        return id;
     }
 
     public void setId(Long id) {
@@ -39,11 +35,7 @@ public class Person {
     }
 
     public String getName() {
-        try {
-            return name;
-        }catch (NullPointerException e){
-            return "";
-        }
+        return name;
     }
 
     public void setName(String name) {
@@ -51,12 +43,7 @@ public class Person {
     }
 
     public Address getAddress() {
-        try {
-            return address;
-        }catch (NullPointerException e){
-            address = new Address();
-            return address;
-        }
+        return address;
     }
 
     public void setAddress(Address address) {
@@ -72,15 +59,8 @@ public class Person {
                 '}';
     }
 
-    public boolean equals(Person o) {
-        if(!this.getName().equals(o.getName()))
-            return false;
-        if(!this.getId().equals(o.getId()))
-            return false;
-        if(!this.getAddress().equals(o.getAddress()))
-            return false;
-        if(!this.toString().equals(o.toString()))
-            return false;
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        return this.toString().equals(o.toString());
     }
 }
