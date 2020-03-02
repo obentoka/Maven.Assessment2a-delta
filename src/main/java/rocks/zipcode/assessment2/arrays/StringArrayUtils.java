@@ -16,36 +16,37 @@ public class StringArrayUtils {
             Logger.getLogger((StringArrayUtils.class.getName()));
 
     public static String[] getSubArray(String[] arrayToBeSpliced, int startingIndex, int endingIndex) {
-        try {
-            if ((startingIndex >= 0 && startingIndex < arrayToBeSpliced.length) &&
-                    (endingIndex < arrayToBeSpliced.length && endingIndex > 1)) {
-                String[] retString = new String[endingIndex - startingIndex];
-                for (int i = 0; startingIndex < endingIndex; i++, startingIndex++) {
-                    retString[i] = arrayToBeSpliced[startingIndex];
-                }
-                return retString;
+
+        if (startingIndex >= arrayToBeSpliced.length || endingIndex >= arrayToBeSpliced.length)
+            throw new IndexOutOfBoundsException();
+        else if(startingIndex < 0 || endingIndex < 0)
+            throw new IllegalArgumentException();
+        else {
+            String[] retString = new String[endingIndex - startingIndex];
+            for (int i = 0; startingIndex < endingIndex; i++, startingIndex++) {
+                retString[i] = arrayToBeSpliced[startingIndex];
             }
-        }catch (IndexOutOfBoundsException e){
-            LOGGER.info(""+e);
+            return retString;
         }
-        return null;
+
     }
 
 
     /**
      * @param arrayToBeSpliced - array to be evaluated
-     * @param startingIndex - starting index of array to be spliced
+     * @param startingIndex    - starting index of array to be spliced
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        if(startingIndex < arrayToBeSpliced.length) {
+        if (startingIndex >= arrayToBeSpliced.length)
+            throw new IllegalArgumentException();
+        else if(startingIndex < 0)
+            throw new IndexOutOfBoundsException();
+        else {
             String[] retString = new String[arrayToBeSpliced.length - startingIndex];
-            for (int i = startingIndex; i < arrayToBeSpliced.length; i++) {
-                retString[i] = arrayToBeSpliced[i];
+            for (int i = 0; startingIndex < arrayToBeSpliced.length; i++, startingIndex++) {
+                retString[i] = arrayToBeSpliced[startingIndex];
             }
-            return retString;
-        }else {
-            String[] retString = new String[0];
             return retString;
         }
     }
