@@ -76,8 +76,13 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{addressLine1='" + getAddressLine1() +"', addressLine2='" + getAddressLine2() +
-                "', city='" + getCity() + "', state='" + getState() +"', zipcode='" + getZipcode()+ "'}";
+        return "Address{" +
+                "firstAddressLine='" + firstAddressLine + '\'' +
+                ", secondAddressLine='" + secondAddressLine + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                '}';
     }
 
     @Override

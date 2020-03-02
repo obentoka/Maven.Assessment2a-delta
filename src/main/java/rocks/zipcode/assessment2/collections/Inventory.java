@@ -1,7 +1,9 @@
 package rocks.zipcode.assessment2.collections;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -11,25 +13,33 @@ public class Inventory {
     /**
      * @param strings list of strings to add / remove / fetch from
      */
-    List<String> things;
+    Map<String, Integer> things;
     private static final Logger LOGGER =
             Logger.getLogger((Inventory.class.getName()));
-    public Inventory(List<String> strings) {
-        things = strings;
+
+    public Inventory(List<String> item) {
+        this();
+        for(String i : item){
+            if(i != null)
+                things.put(i, 1);
+        }
     }
 
     /**
      * nullary constructor initializes a new list
      */
     public Inventory() {
-        things = new ArrayList<>();
+        things = new HashMap<>();
     }
 
     /**
      * @param item - increment the number of this item in stock by 1
      */
     public void addItemToInventory(String item) {
-        things.add(item);
+        if(things.containsKey(item))
+            things.replace(item, things.get(item), things.get(item)+1);
+        else
+            things.put(item, 1);
     }
 
     /**
@@ -48,16 +58,9 @@ public class Inventory {
      * @return - return the number of items
      */
     public Integer getItemQuantity(String item) {
-        if(things.contains(item)){
-            int count = 0;
-            for (String i : things){
-                if(i.equalsIgnoreCase(item)) {
-                    count++;
-                }
-            }
-            return count;
-        }else {
-            return 0;
+        if(things.containsKey(item)){
+            return things.get(item);
         }
+        return 0;
     }
 }

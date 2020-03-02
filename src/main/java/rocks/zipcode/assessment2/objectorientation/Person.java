@@ -65,9 +65,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{id=" + getId() + ", name='" + getName() + "', " +
-                "address=Address{addressLine1='" + address.getAddressLine1() + "', addressLine2='" + address.getAddressLine2() + "', " +
-                "city='" + address.getCity() + "', state='" + address.getState() + "', zipcode='" + address.getZipcode() +"'}}";
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                '}';
     }
 
     public boolean equals(Person o) {
