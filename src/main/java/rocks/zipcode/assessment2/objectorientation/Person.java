@@ -15,34 +15,59 @@ public class Person {
      * @param address - address of person
      */
     public Person(Long id, String name, Address address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
     }
 
     public Person() {
+        id = Long.MIN_VALUE;
+        name = "";
+        address = new Address();
     }
 
     public Long getId() {
-        return null;
+        return id;
     }
 
     public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
-        return null;
+        return name;
     }
 
     public void setName(String name) {
+        this.name = name;
     }
 
     public Address getAddress() {
-        return null;
+        return address;
     }
 
     public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{id=" + getId() + ", name='" + getName() + "', " +
+                "address=Address{addressLine1='" + address.getAddressLine1() + "', addressLine2='" + address.getAddressLine2() + "', " +
+                "city='" + address.getCity() + "', state='" + address.getState() + "', zipcode='" + address.getZipcode() +"'}}";
     }
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        Person o2 = (Person)o;
+        if(!this.name.equals(o2.getName()))
+            return false;
+        if(!this.id.equals(o2.getId()))
+            return false;
+        if(!this.address.equals(o2.getAddress()))
+            return false;
+        if(!this.toString().equals(o2.toString()))
+            return false;
+        return true;
     }
 }
