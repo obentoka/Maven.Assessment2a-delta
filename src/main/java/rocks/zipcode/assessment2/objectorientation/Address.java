@@ -4,7 +4,19 @@ package rocks.zipcode.assessment2.objectorientation;
  * @author leon on 28/11/2018.
  */
 public class Address {
+
+    private String firstAddressLine;
+    private String secondAddressLine;
+    private String city;
+    private String state;
+    private String zipcode;
+
     public Address() {
+        firstAddressLine = "";
+        secondAddressLine = "";
+        city = "";
+        state = "";
+        zipcode = "";
     }
 
     /**
@@ -15,45 +27,64 @@ public class Address {
      * @param zipcode - zipcode of region
      */
     public Address(String addressLine1, String addressLine2, String city, String state, String zipcode) {
+        firstAddressLine = addressLine1;
+        secondAddressLine = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
     }
 
     public String getAddressLine1() {
-        return null;
+        return firstAddressLine;
     }
 
     public void setAddressLine1(String addressLine1) {
+        firstAddressLine = addressLine1;
     }
 
     public String getAddressLine2() {
-        return null;
+        return secondAddressLine;
     }
 
     public void setAddressLine2(String addressLine2) {
+        secondAddressLine = addressLine2;
     }
 
     public String getCity() {
-        return null;
+        return city;
     }
 
     public void setCity(String city) {
+        this.city = city;
     }
 
     public String getState() {
-        return null;
+        return state;
     }
 
     public void setState(String state) {
+        this.state = state;
     }
 
     public String getZipcode() {
-        return null;
+        return zipcode;
     }
 
     public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{addressLine1='" + getAddressLine1() +"', addressLine2='" + getAddressLine2() +
+                "', city='" + getCity() + "', state='" + getState() +"', zipcode='" + getZipcode()+ "'}";
     }
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if(this.toString().equals(o.toString()))
+            return true;
+        else
+            return false;
     }
 }

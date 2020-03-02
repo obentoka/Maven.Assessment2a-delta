@@ -5,6 +5,10 @@ package rocks.zipcode.assessment2.objectorientation;
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Address` class before attempting this class
  */
 public class Person {
+
+    Long id;
+    String name;
+    Address address;
     /**
      * @param id - id of person
      * @param name - name of person
