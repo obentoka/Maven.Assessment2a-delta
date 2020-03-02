@@ -57,16 +57,14 @@ public class Person {
                 "city='" + address.getCity() + "', state='" + address.getState() + "', zipcode='" + address.getZipcode() +"'}}";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        Person o2 = (Person)o;
-        if(!this.name.equals(o2.getName()))
+    public boolean equals(Person o) {
+        if(!this.name.equals(o.getName()))
             return false;
-        if(!this.id.equals(o2.getId()))
+        if(!this.id.equals(o.getId()))
             return false;
-        if(!this.address.equals(o2.getAddress()))
+        if(!this.address.equals(o.getAddress()))
             return false;
-        if(!this.toString().equals(o2.toString()))
+        if(!this.toString().equals(o.toString()))
             return false;
         return true;
     }

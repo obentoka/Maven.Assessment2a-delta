@@ -12,6 +12,8 @@ public class Animal {
     Long id;
     Person owner;
     public Animal() {
+        owner = new Person();
+        id = null;
     }
 
     /**
@@ -40,6 +42,6 @@ public class Animal {
     }
 
     public Address getAddress() {
-        return null;
+        return owner.getAddress();
     }
 }
