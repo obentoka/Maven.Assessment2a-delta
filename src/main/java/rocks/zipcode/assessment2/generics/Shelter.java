@@ -16,7 +16,6 @@ import java.util.function.Consumer;
  * Shelter<Dog> dogHouse = new Shelter<Dog>();
  */
 
-//CHANGED ALL THE PARAMETER TO GENERICS >>????><<
 public class Shelter<T extends Ageable> implements Iterable<T>{
 
     List<T> shell;
@@ -47,7 +46,7 @@ public class Shelter<T extends Ageable> implements Iterable<T>{
             shell.remove(object);
     }
 
-    public Object get(Integer index) {
+    public T get(Integer index) {
         if(shell != null)
             return shell.get(index);
         return null;
@@ -61,6 +60,6 @@ public class Shelter<T extends Ageable> implements Iterable<T>{
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return shell.iterator();
     }
 }

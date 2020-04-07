@@ -12,8 +12,6 @@ public class StringArrayUtils {
      * @param endingIndex - ending index of array
      * @return an array with all elements between `startingIndex` and `endingIndex`
      */
-    private static final Logger LOGGER =
-            Logger.getLogger((StringArrayUtils.class.getName()));
 
     public static String[] getSubArray(String[] arrayToBeSpliced, int startingIndex, int endingIndex) {
 

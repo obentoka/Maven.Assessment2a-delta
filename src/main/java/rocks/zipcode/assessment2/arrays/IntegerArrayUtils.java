@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.arrays;
 
+import java.util.Arrays;
+
 /**
  * @author leon on 28/11/2018.
  */
@@ -43,14 +45,9 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1 and odd-values decremented by 1
      */
     public static Integer[] incrementEvenDecrementOdd(Integer[] integerArray) {
-        for (int i = 0; i < integerArray.length; i++) {
-            if(integerArray[i] % 2 == 0){
-                integerArray[i] += 1;
-            }else {
-                integerArray[i] -= 1;
-            }
-        }
-        return integerArray;
+        return Arrays.stream(integerArray)
+                .map(x -> x % 2 == 0 ? ++x : --x)
+                .toArray(Integer[]::new);
     }
 
     /**
@@ -58,12 +55,9 @@ public class IntegerArrayUtils {
      * @return identical array with even-values incremented by 1
      */
     public static Integer[] incrementEven(Integer[] integerArray) {
-        for (int i = 0; i < integerArray.length; i++) {
-            if(integerArray[i] % 2 == 0){
-                integerArray[i] += 1;
-            }
-        }
-        return integerArray;
+        return Arrays.stream(integerArray)
+                .map(x -> x % 2 == 0 ? ++x : x)
+                .toArray(Integer[]::new);
     }
 
     /**
@@ -71,11 +65,8 @@ public class IntegerArrayUtils {
      * @return identical array with odd-values decremented by 1
      */
     public static Integer[] decrementOdd(Integer[] integerArray) {
-        for (int i = 0; i < integerArray.length; i++) {
-            if(integerArray[i] % 2 != 0){
-                integerArray[i] -= 1;
-            }
-        }
-        return integerArray;
+        return Arrays.stream(integerArray)
+                .map(x -> x % 2 == 0 ? x : --x)
+                .toArray(Integer[]::new);
     }
 }
